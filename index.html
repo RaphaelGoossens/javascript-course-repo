@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,9 @@
 </form>
 <br>
 <div id="printzone"></div>
+<br>
+<div id="clock"></div>
+
 
 <script type="text/javascript">
     function readForm(){
@@ -29,13 +33,27 @@
                 radiobuttonvalue = radiobuttons[i].value
             }
         }
-        document.getElementById("printzone").innerHTML = radiobuttonvalue;    
+        document.getElementById("printzone").innerHTML = radiobuttonvalue    
     }
     
+    function PrintTime(){
+        var day = new Date();
+        var hour = day.getHours();
+        var minute = day.getMinutes();
+        var second = day.getSeconds();
+        var time = hour + ":" + minute + ":" + second;
+        setTimeout(PrintTime,1000);
+        
+        document.getElementById("clock").innerHTML = time;
 
+    }
 
-
-
+    PrintTime();
+   
+    
 </script>
+
 </body>
+=======
+
 </html>
