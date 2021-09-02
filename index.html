@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>put your title here</title>
+</head>
+<body>
+    Hello World!<br>
+
+
+    Select Timezone<br>
+<form>
+    <input type="radio" name="timezone" value="GMT"> Greenwich Mean Time <br>
+    <input type="radio" name="timezone" value="EST"> Eastern Standard Time <br>
+    <br>
+    <button type="button" name="SubmitButton" value="Submit" onclick="readForm()"> Submit </button>      
+</form>
+<br>
+<div id="printzone"></div>
+<br>
+<div id="clock"></div>
+
+
+<script type="text/javascript">
+    function readForm(){
+        var radiobuttons = document.getElementsByName("timezone")
+        var radiobuttonvalue = radiobuttons[0].value
+        for (var i = 0; i < radiobuttons.length; i++){
+            if (radiobuttons[i].checked == true) {
+                radiobuttonvalue = radiobuttons[i].value
+            }
+        }
+        document.getElementById("printzone").innerHTML = radiobuttonvalue    
+    }
+    
+    function PrintTime(){
+        var day = new Date();
+        var hour = day.getHours();
+        var minute = day.getMinutes();
+        var second = day.getSeconds();
+        var time = hour + ":" + minute + ":" + second;
+        setTimeout(PrintTime,1000);
+        
+        document.getElementById("clock").innerHTML = time;
+
+    }
+
+    PrintTime();
+   
+    
+</script>
+
+</body>
+</html>
