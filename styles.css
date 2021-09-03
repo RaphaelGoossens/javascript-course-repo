@@ -9,3 +9,17 @@ body {
   background: rgb(253, 190, 168);
   color: rgb(0, 0, 0);
 }
+
+.clock {
+  width: 500px;
+  height: 200px;
+  background-color: rgb(62, 77, 77);
+  border-color: rgb(54, 63, 63);
+  border-width: 50px;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  font-size: 90px;
+}
