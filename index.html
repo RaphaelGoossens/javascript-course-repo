@@ -14,6 +14,7 @@
     Select Timezone<br>
 <form>
     <input type="radio" name="timezone" value="GMT"> Greenwich Mean Time <br>
+    <input type="radio" name="timezone" value="GMT+1"> Greenwich Mean Time+1 <br>
     <input type="radio" name="timezone" value="EST"> Eastern Standard Time <br>
     <br>
     <button type="button" name="SubmitButton" value="Submit" onclick="readForm()"> Submit </button>      
@@ -25,6 +26,7 @@
 
 
 <script type="text/javascript">
+var offset=0;
     function readForm(){
         var radiobuttons = document.getElementsByName("timezone")
         var radiobuttonvalue = radiobuttons[0].value
@@ -34,11 +36,24 @@
             }
         }
         document.getElementById("printzone").innerHTML = radiobuttonvalue    
+
+        switch(radiobuttonvalue){
+            case "GMT":
+                offset=-1;
+                break
+            case "EST":
+                offset=-4;
+                break
+            default :
+                offset=0;
+                break
+        }
+        Printime()
     }
     
     function PrintTime(){
         var day = new Date();
-        var hour = day.getHours();
+        var hour = day.getHours()+offset;
         var minute = day.getMinutes();
         var second = day.getSeconds();
         var time = hour + ":" + minute + ":" + second;
