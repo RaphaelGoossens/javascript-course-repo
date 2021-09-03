@@ -27,7 +27,7 @@
 <br>
 <div id="printzone"></div>
 <br>
-<div id="clock"></div>
+<div id="clock" class="clock"></div>
 
 
 <script type="text/javascript">
@@ -61,6 +61,10 @@ var offset=0;
         var hour = day.getHours()+offset;
         var minute = day.getMinutes();
         var second = day.getSeconds();
+
+        if (second<10){
+            second = "0" + second
+        }
         var time = hour + ":" + minute + ":" + second;
         setTimeout(PrintTime,1000);
         
