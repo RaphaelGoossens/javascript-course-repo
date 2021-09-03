@@ -11,7 +11,7 @@ body {
 }
 
 .clock {
-  width: 500px;
+  width: 400px;
   height: 200px;
   background-color: rgb(62, 77, 77);
   border-color: rgb(54, 63, 63);
@@ -22,4 +22,16 @@ body {
   justify-content: center;
   margin-left: 50px;
   font-size: 90px;
+}
+
+.zonetime {
+  justify-content: center;
+  align-items: center;
+  width: 35 0px;
+  height: 200px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 25px;
+  background: rgb(253, 190, 168);
+  color: rgb(0, 0, 0);
 }

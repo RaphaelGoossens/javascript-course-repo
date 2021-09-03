@@ -11,10 +11,10 @@
     
 </head>
 <body>
-    <p>Hello World</p>
+    <!-- <p>Hello World</p> -->
 
     
-<form>
+<form class="zonetime">
     Select Timezone<br>
     <br>
 
@@ -22,10 +22,11 @@
     <input type="radio" name="timezone" value="GMT+1"> Greenwich Mean Time+1 <br>
     <input type="radio" name="timezone" value="EST"> Eastern Standard Time <br>
     <br>
+    <br>
     <button type="button" name="SubmitButton" value="Submit" onclick="readForm()"> Submit </button>      
 </form>
 <br>
-<div id="printzone"></div>
+<div id="printzone"></div> 
 <br>
 <div id="clock" class="clock"></div>
 
@@ -40,7 +41,7 @@ var offset=0;
                 radiobuttonvalue = radiobuttons[i].value
             }
         }
-        document.getElementById("printzone").innerHTML = radiobuttonvalue    
+        // document.getElementById("printzone").innerHTML = radiobuttonvalue    
 
         switch(radiobuttonvalue){
             case "GMT":
@@ -62,11 +63,17 @@ var offset=0;
         var minute = day.getMinutes();
         var second = day.getSeconds();
 
+        if (hour<10){
+            hour = "0" + hour
+        }
+        if (minute<10){
+            minute = "0" + minute
+        }
         if (second<10){
             second = "0" + second
         }
         var time = hour + ":" + minute + ":" + second;
-        setTimeout(PrintTime,1000);
+        setTimeout(PrintTime,100);
         
         document.getElementById("clock").innerHTML = time;
 
